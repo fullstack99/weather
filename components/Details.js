@@ -5,7 +5,6 @@ import { Fontisto } from "@expo/vector-icons";
 
 const WeatherDetailComponent = ({ data, type }) => {
   const renderWeatherIcon = (value) => {
-    console.log(11, value);
     if (value.includes("Clear")) {
       return (
         <Fontisto
