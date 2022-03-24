@@ -5,27 +5,38 @@ import { Fontisto } from "@expo/vector-icons";
 
 const WeatherDetailComponent = ({ data, type }) => {
   const renderWeatherIcon = (value) => {
+    console.log(11, value);
     if (value.includes("Clear")) {
       return (
-        <Fontisto name="day-sunny" size={24} color="red" style={styles.icon} />
+        <Fontisto
+          name="day-sunny"
+          size={24}
+          color="#ffd600"
+          style={styles.icon}
+        />
       );
     }
     if (value.includes("Cloud")) {
       return (
-        <Fontisto name="cloudy" size={24} color="red" style={styles.icon} />
+        <Fontisto name="cloudy" size={24} color="#42a5f5" style={styles.icon} />
       );
     }
     if (value.includes("Rain")) {
       return (
-        <Fontisto name="rains" size={24} color="red" style={styles.icon} />
+        <Fontisto name="rains" size={24} color="#37474f" style={styles.icon} />
       );
     }
     if (value.includes("Snow")) {
       return (
-        <Fontisto name="snows" size={24} color="red" style={styles.icon} />
+        <Fontisto
+          name="snowflake"
+          size={24}
+          color="#4fc3f7"
+          style={styles.icon}
+        />
       );
     }
-    <Fontisto name="day-sunny" size={24} color="red" style={styles.icon} />;
+    <Fontisto name="day-sunny" size={24} color="#ffd600" style={styles.icon} />;
   };
 
   return (

@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   item: {
-    marginTop: 30,
+    marginVertical: 15,
   },
 });
 
