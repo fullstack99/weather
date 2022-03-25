@@ -1,15 +1,21 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 import RNPickerSelect from "react-native-picker-select";
 import { AntDesign } from "@expo/vector-icons";
 
 const SelectPicker = ({ onValueChange, items, placeholder }) => {
+  const renderIcon = () => {
+    return Platform.OS !== "web" ? (
+      <AntDesign name="down" size={16} color="black" />
+    ) : null;
+  };
+
   return (
     <RNPickerSelect
       onValueChange={(val) => onValueChange(val)}
       placeholder={{
         label: placeholder,
-        value: null,
+        value: "",
       }}
       items={items}
       style={{
@@ -20,7 +26,7 @@ const SelectPicker = ({ onValueChange, items, placeholder }) => {
         },
       }}
       useNativeAndroidPickerStyle={false}
-      Icon={() => <AntDesign name="down" size={16} color="black" />}
+      Icon={() => renderIcon()}
     />
   );
 };
@@ -49,5 +55,17 @@ const pickerSelectStyles = StyleSheet.create({
     borderRadius: 8,
     color: "black",
     paddingRight: 30,
+  },
+  inputWeb: {
+    fontSize: 15,
+    fontWeight: "600",
+    paddingVertical: 12,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 4,
+    color: "black",
+    paddingRight: 30,
+    width: "100%",
   },
 });

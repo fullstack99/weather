@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 const LoadingBar = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator />
+      <ActivityIndicator color="#00ff00" />
     </View>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, View, SafeAreaView, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import WeatherDetails from "./Details";
 import SelectPicker from "../../components/SelectPicker";
