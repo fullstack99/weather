@@ -12,12 +12,20 @@ const WeatherDetails = ({ data }) => {
       <FlatList
         data={data.daily || []}
         renderItem={({ item }) => (
-          <WeatherDetailComponent data={item} type="week" />
+          <WeatherDetailComponent
+            data={item}
+            type="week"
+            timezone={data.timezone}
+          />
         )}
         keyExtractor={(item, index) => `daily${index}`}
         ListHeaderComponent={
           <>
-            <WeatherDetailComponent data={data.current} type="day" />
+            <WeatherDetailComponent
+              data={data.current}
+              type="day"
+              timezone={data.timezone}
+            />
             {data.daily?.length > 0 && (
               <Text style={styles.txt}>8-day forecast</Text>
             )}

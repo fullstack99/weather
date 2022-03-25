@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import moment from "moment";
+import moment from "moment-timezone";
 import { Fontisto } from "@expo/vector-icons";
 
-const WeatherDetailComponent = ({ data, type }) => {
+const WeatherDetailComponent = ({ data, type, timezone }) => {
   const renderWeatherIcon = (value) => {
     if (value.includes("Clear")) {
       return (
@@ -45,7 +45,9 @@ const WeatherDetailComponent = ({ data, type }) => {
           <Text style={[styles.secondaryTxt, styles.txtBold]}>Today: </Text>
         )}
         <Text style={[styles.secondaryTxt, styles.txtBold]}>
-          {moment(data.dt * 1000).format("ddd MMM DD, hh:mm a")}
+          {moment(data.dt * 1000)
+            .tz(timezone)
+            .format("ddd MMM DD, hh:mm a")}
         </Text>
       </View>
       <View style={styles.row}>
@@ -92,12 +94,18 @@ const WeatherDetailComponent = ({ data, type }) => {
       <View style={styles.row}>
         <View style={styles.item}>
           <Text style={styles.primaryTxt}>
-            Sunrise: {moment(data.sunrise * 1000).format("hh:mm a")}
+            Sunrise:{" "}
+            {moment(data.sunrise * 1000)
+              .tz(timezone)
+              .format("hh:mm a")}
           </Text>
         </View>
         <View style={styles.item}>
           <Text style={styles.primaryTxt}>
-            Sunset: {moment(data.sunset * 1000).format("hh:mm a")}
+            Sunset:{" "}
+            {moment(data.sunset * 1000)
+              .tz(timezone)
+              .format("hh:mm a")}
           </Text>
         </View>
       </View>
